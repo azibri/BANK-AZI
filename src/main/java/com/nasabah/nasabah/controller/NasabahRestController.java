@@ -10,6 +10,7 @@ import com.nasabah.nasabah.services.NasabahServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author asus
  */
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping(value = "/api")
 public class NasabahRestController {
@@ -54,7 +56,7 @@ public class NasabahRestController {
     public ResponseEntity<Nasabah> updateNasabah(@PathVariable Integer id, @RequestBody Nasabah nasabahdetails) {
         Nasabah nasabah = nasabahServiceImpl.findDataById(id);
         
-        nasabah.setNasabahId(nasabahdetails.getNasabahId());
+//        nasabah.setNasabahId(nasabahdetails.getNasabahId());
         nasabah.setNasabahNama(nasabahdetails.getNasabahNama());
         nasabah.setNasabahAlamat(nasabahdetails.getNasabahAlamat());
         nasabah.setNasabahTempatlahir(nasabahdetails.getNasabahTempatlahir());
