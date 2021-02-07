@@ -6,7 +6,9 @@
 package com.nasabah.nasabah.controller;
 
 import com.nasabah.nasabah.entities.Nasabah;
+import com.nasabah.nasabah.repository.NasabahRepo;
 import com.nasabah.nasabah.services.NasabahServiceImpl;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +33,9 @@ public class NasabahRestController {
     
     @Autowired
     private NasabahServiceImpl nasabahServiceImpl;
+    
+    @Autowired
+    NasabahRepo nasabahRepo;
     
     //mendapatkan semua data
     @GetMapping("/nasabah")
@@ -63,6 +68,7 @@ public class NasabahRestController {
         nasabah.setNasabahTanggallahir(nasabahdetails.getNasabahTanggallahir());
         nasabah.setNasabahNoktp(nasabahdetails.getNasabahNoktp());
         nasabah.setNasabahNohandphone(nasabahdetails.getNasabahNohandphone());
+        nasabah.setNasabahEmail(nasabahdetails.getNasabahEmail());
         
         nasabahServiceImpl.saveData(nasabah);
         return new ResponseEntity<>(nasabah, HttpStatus.OK);
@@ -78,10 +84,13 @@ public class NasabahRestController {
     //mengambil data berdasarkan no KTP
     @GetMapping("nasabah/ktp/{ktp}")
     public Iterable<Nasabah> findByKTP(@PathVariable String ktp) {
+        
 //        char noktp = ktp.toCharArray();
 //        for (char noktp : ktp.toCharArray()) {
 //            System.out.println("noktp" + noktp);
 //        }
-        return nasabahServiceImpl.findByKTP(ktp);
+//        Iterable<Nasabah> nasabah = nasabahServiceImpl.findByNasabahNoktp(ktp);
+        return nasabahServiceImpl.findByNasabahNoktp(ktp);
     }
+    
 }

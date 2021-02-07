@@ -7,6 +7,7 @@ package com.nasabah.nasabah.services;
 
 import com.nasabah.nasabah.entities.Nasabah;
 import com.nasabah.nasabah.repository.NasabahRepo;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,8 +42,8 @@ public class NasabahServiceImpl implements NasabahService {
     }
 
     @Override
-    public Iterable<Nasabah> findByKTP(String ktp) {
-        return nasabahRepo.findByKTP(ktp);
+    public Iterable<Nasabah> findByNasabahNoktp(String nasabahNoktp) {
+        return nasabahRepo.findByNasabahNoktp(nasabahNoktp);
     }
     
 }

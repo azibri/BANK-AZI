@@ -37,7 +37,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Nasabah.findByNasabahTempatlahir", query = "SELECT n FROM Nasabah n WHERE n.nasabahTempatlahir = :nasabahTempatlahir")
     , @NamedQuery(name = "Nasabah.findByNasabahTanggallahir", query = "SELECT n FROM Nasabah n WHERE n.nasabahTanggallahir = :nasabahTanggallahir")
     , @NamedQuery(name = "Nasabah.findByNasabahNoktp", query = "SELECT n FROM Nasabah n WHERE n.nasabahNoktp = :nasabahNoktp")
-    , @NamedQuery(name = "Nasabah.findByNasabahNohandphone", query = "SELECT n FROM Nasabah n WHERE n.nasabahNohandphone = :nasabahNohandphone")})
+    , @NamedQuery(name = "Nasabah.findByNasabahNohandphone", query = "SELECT n FROM Nasabah n WHERE n.nasabahNohandphone = :nasabahNohandphone")
+    , @NamedQuery(name = "Nasabah.findByNasabahEmail", query = "SELECT n FROM Nasabah n WHERE n.nasabahEmail = :nasabahEmail")})
 public class Nasabah implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -76,6 +77,11 @@ public class Nasabah implements Serializable {
     @Size(min = 1, max = 15)
     @Column(name = "nasabah_nohandphone")
     private String nasabahNohandphone;
+    @Basic(optional = false)
+//    @NotNull
+    @Size(min = 1, max = 30)
+    @Column(name = "nasabah_email")
+    private String nasabahEmail;
 
     public Nasabah() {
     }
@@ -84,7 +90,7 @@ public class Nasabah implements Serializable {
         this.nasabahId = nasabahId;
     }
 
-    public Nasabah(Integer nasabahId, String nasabahNama, String nasabahAlamat, String nasabahTempatlahir, Date nasabahTanggallahir, String nasabahNoktp, String nasabahNohandphone) {
+    public Nasabah(Integer nasabahId, String nasabahNama, String nasabahAlamat, String nasabahTempatlahir, Date nasabahTanggallahir, String nasabahNoktp, String nasabahNohandphone, String nasabahEmail) {
         this.nasabahId = nasabahId;
         this.nasabahNama = nasabahNama;
         this.nasabahAlamat = nasabahAlamat;
@@ -92,6 +98,7 @@ public class Nasabah implements Serializable {
         this.nasabahTanggallahir = nasabahTanggallahir;
         this.nasabahNoktp = nasabahNoktp;
         this.nasabahNohandphone = nasabahNohandphone;
+        this.nasabahEmail = nasabahEmail;
     }
 
     public Integer getNasabahId() {
@@ -148,6 +155,14 @@ public class Nasabah implements Serializable {
 
     public void setNasabahNohandphone(String nasabahNohandphone) {
         this.nasabahNohandphone = nasabahNohandphone;
+    }
+
+    public String getNasabahEmail() {
+        return nasabahEmail;
+    }
+
+    public void setNasabahEmail(String nasabahEmail) {
+        this.nasabahEmail = nasabahEmail;
     }
 
     @Override

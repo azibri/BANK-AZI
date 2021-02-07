@@ -8,6 +8,7 @@ package com.nasabah.nasabah.repository;
 import com.nasabah.nasabah.entities.Nasabah;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -17,7 +18,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface NasabahRepo extends CrudRepository<Nasabah, Integer>{
     
-    @Query(value = "SELECT * FROM nasabah WHERE nasabah_noktp = ?1", nativeQuery = true)
-    public Iterable<Nasabah> findByKTP(String ktp);
+    public Iterable<Nasabah> findByNasabahNoktp(@Param("nasabahNoktp") String nasabahNoktp);
     
 }

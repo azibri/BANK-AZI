@@ -6,6 +6,7 @@
 package com.nasabah.nasabah.services;
 
 import com.nasabah.nasabah.entities.Nasabah;
+import java.util.List;
 
 /**
  *
@@ -21,6 +22,6 @@ public interface NasabahService {
     
     void deleteData(Integer id);
     
-    public Iterable<Nasabah> findByKTP(String ktp);
+    public Iterable<Nasabah> findByNasabahNoktp(String nasabahNoktp);
       
 }
