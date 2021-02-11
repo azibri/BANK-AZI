@@ -69,7 +69,7 @@
                     <finalName>nasabah</finalName>
                 </configuration>-->
 
-                <configuration>
+<!--                <configuration>
                     <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
                     <dockerDirectory>src/main/docker</dockerDirectory>
                     <resources>
@@ -78,7 +78,7 @@
                             <include>${project.build.finalName}.jar</include>
                         </resource>
                     </resources>
-                </configuration>
+                </configuration>-->
             </plugin>
             
             <plugin>
