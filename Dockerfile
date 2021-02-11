@@ -16,4 +16,4 @@ ENTRYPOINT ["/opt/spring-boot/entrypoint.sh"]
 RUN chmod a+x entrypoint.sh
 
 # Set the default command to run on boot
-CMD java $JAVA_AGENT -jar spring-boot.jar
+CMD java $JAVA_AGENT -jar nasabah-0.0.1-SNAPSHOT.jar
