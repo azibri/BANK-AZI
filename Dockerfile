@@ -17,6 +17,3 @@ RUN chmod a+x entrypoint.sh
 
 # Set the default command to run on boot
 CMD java $JAVA_AGENT -jar spring-boot.jar
-
-# Copy the JAR file
-COPY spring-boot-pet-clinic.jar /opt/spring-boot/spring-boot.jar 
