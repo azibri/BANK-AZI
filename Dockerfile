@@ -1,13 +1,14 @@
 #Where we start
 FROM java:8
 
+
+#Get APK up to date
+RUN apk update && apk upgrade
+
 #Install Maven
 RUN apk add maven
 
 EXPOSE 8081
-
-#Get APK up to date
-RUN apk update && apk upgrade
 
 #Git
 RUN apk add git
