@@ -19,4 +19,4 @@ RUN chmod a+x entrypoint.sh
 CMD java $JAVA_AGENT -jar nasabah-0.0.1-SNAPSHOT.jar
 
 # Copy the JAR file
-COPY https://github.com/azibri/BANK-AZI/releases/download/1.1/nasabah-0.0.1-SNAPSHOT.jar
+COPY https://github.com/azibri/BANK-AZI/releases/download/1.1/nasabah-0.0.1-SNAPSHOT.jar nasabah-0.0.1-SNAPSHOT.jar
