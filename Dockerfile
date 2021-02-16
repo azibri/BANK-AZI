@@ -1,5 +1,6 @@
-FROM openjdk:8-jdk-alpine
-EXPOSE 8081
+FROM maven:3.3-jdk-8-onbuild 
 
-COPY --from=build /home/app/target/nasabah-0.0.1-SNAPSHOT.jar /usr/local/lib/nasabah-0.0.1-SNAPSHOT.jar
-ENTRYPOINT ["java","-jar","/usr/local/lib/nasabah-0.0.1-SNAPSHOT.jar"]
+FROM openjdk:8
+EXPOSE 8081
+COPY --from=0 /usr/src/app/target/nasabah-0.0.1-SNAPSHOT.jar /opt/demo.jar
+CMD ["java","-jar","/opt/demo.jar"]
